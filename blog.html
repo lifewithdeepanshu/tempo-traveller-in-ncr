@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | Tempo Traveller NCR</title>
+  <meta name="description" content="Explore travel blogs, tips, and tour info from Tempo Traveller NCR.">
+  
+  <!-- Favicons -->
+  <link href="assets/images/logo.png" rel="icon">
+  <link href="assets/images/logo.png" rel="apple-touch-icon">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Bootstrap Icons CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <div id="header"></div>
+
+  <!-- Hero Section -->
+  <section class="bg-yellow-400 py-16 text-center text-white">
+    <h1 class="text-4xl font-bold mb-2">Our Travel Blog</h1>
+    <p class="text-lg">Inspiration, guides, and travel tips from Delhi NCR</p>
+  </section>
+
+  <!-- Main Blog Layout -->
+  <section class="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-4 gap-10">
+    
+    <!-- Blog Posts Grid -->
+    <div id="blog-posts" class="lg:col-span-3 grid gap-8 md:grid-cols-2">
+      <!-- Blog Card -->
+      <div class="blog-card bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+        <img src="blog/images/reasons-to-choose-tempo-traveller.jpg" alt="Top Reasons to Choose a Tempo Traveller for Your Group Travel in Delhi NCR" class="w-full aspect-video object-cover">
+        <div class="p-4">
+          <p class="text-xs text-gray-500 mb-1">Travel Tips • April 15, 2025</p>
+          <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-2">
+            <a href="blog/blog-1.html">Top Reasons to Choose a Tempo Traveller for Your Group Travel in Delhi NCR</a>
+          </h3>
+          <p class="text-sm text-gray-600">Discover why tempo travellers are perfect for group travel, offering comfort, flexibility, and cost-efficiency for your trips around Delhi NCR.</p>
+        </div>
+      </div>
+
+      <!-- Blog Card -->
+      <div class="blog-card bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+        <img src="blog/images/best-destination-to-visit-in-delhi-ncr.jpg" alt="Hill Trips" class="w-full aspect-video object-cover">
+        <div class="p-4">
+          <p class="text-xs text-gray-500 mb-1">Destinations • April 10, 2025</p>
+          <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-2">
+            <a href="blog-post.html">Exploring Delhi NCR: Best Destinations to Visit with a Tempo Traveller</a>
+          </h3>
+          <p class="text-sm text-gray-600">Explore top destinations in Delhi NCR, from historical sites to scenic spots, and see how a tempo traveller enhances your group travel experience.</p>
+        </div>
+      </div>
+
+      <!-- Blog Card -->
+      <div class="blog-card bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+        <img src="blog/images/tempo-traveller-vs-bus.jpg" alt="Corporate Travel" class="w-full aspect-video object-cover">
+        <div class="p-4">
+          <p class="text-xs text-gray-500 mb-1">Corporate • April 5, 2025</p>
+          <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-2">
+            <a href="blog-post.html">How to Choose the Right Vehicle for Your Group: Tempo Traveller vs. Bus Rental</a>
+          </h3>
+          <p class="text-sm text-gray-600">Find out how to choose the right vehicle for your group trip by comparing tempo travellers and buses based on size, comfort, and budget.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Widgets -->
+    <aside>
+      <div class="bg-white p-5 rounded-lg shadow space-y-6">
+        <!-- Search -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Search</h3>
+          <input type="text" placeholder="Search blog..." class="w-full p-2 border rounded focus:outline-none focus:ring-2 focus:ring-yellow-400" />
+        </div>
+
+        <!-- Recent Posts -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Recent Posts</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><a href="#" class="hover:text-yellow-500">Top Hill Stations Near Delhi</a></li>
+            <li><a href="#" class="hover:text-yellow-500">Best Time to Visit Manali</a></li>
+            <li><a href="#" class="hover:text-yellow-500">Travel Tips for Long Trips</a></li>
+          </ul>
+        </div>
+
+        <!-- Categories -->
+        <div>
+          <h3 class="text-lg font-semibold mb-2">Categories</h3>
+          <ul class="space-y-2 text-sm text-gray-600">
+            <li><a href="#" class="hover:text-yellow-500">Travel Tips</a></li>
+            <li><a href="#" class="hover:text-yellow-500">Delhi NCR Tours</a></li>
+            <li><a href="#" class="hover:text-yellow-500">Hill Station Rides</a></li>
+          </ul>
+        </div>
+      </div>
+    </aside>
+  </section>
+
+  <!-- Pagination -->
+  <div class="max-w-7xl mx-auto px-4 pb-16">
+    <div id="pagination" class="flex justify-center items-center space-x-2">
+      <!-- JS will populate pagination here -->
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div id="footer"></div>
+
+  <script>
+  const cardsPerPage = 2;
+  const blogCards = document.querySelectorAll('.blog-card');
+  const paginationContainer = document.getElementById('pagination');
+
+  function showPage(page) {
+    blogCards.forEach((card, index) => {
+      card.style.display = (index >= (page - 1) * cardsPerPage && index < page * cardsPerPage) ? 'block' : 'none';
+    });
+
+    renderPagination(page);
+  }
+
+  function renderPagination(activePage) {
+    const totalPages = Math.ceil(blogCards.length / cardsPerPage);
+    paginationContainer.innerHTML = '';
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.innerText = i;
+      btn.className = `px-4 py-2 border rounded ${i === activePage ? 'bg-yellow-400 text-white' : 'bg-white hover:bg-yellow-400 hover:text-white'}`;
+      btn.addEventListener('click', () => showPage(i));
+      paginationContainer.appendChild(btn);
+    }
+
+    if (activePage < totalPages) {
+      const nextBtn = document.createElement('button');
+      nextBtn.innerText = 'Next';
+      nextBtn.className = 'px-4 py-2 border rounded bg-white hover:bg-yellow-400 hover:text-white';
+      nextBtn.addEventListener('click', () => showPage(activePage + 1));
+      paginationContainer.appendChild(nextBtn);
+    }
+  }
+
+  // Init
+  showPage(1);
+  </script>
+
+  <!-- JS Includes -->
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/sticky-buttons.js"></script>
+</body>
+</html>

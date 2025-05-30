@@ -1,0 +1,7 @@
+.prose ol, .prose ul {
+    list-style: inside;
+    margin-left: 1.25rem;
+}
+.prose li {
+    margin-bottom: 0.5rem;
+}

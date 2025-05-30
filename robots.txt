@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /components/
+Disallow: /blog/components/
+Disallow: /old website/
+Disallow: /admin/

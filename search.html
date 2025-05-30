@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search - Tempo Traveller NCR</title>
+	
+  <!-- Favicons -->
+  <link href="assets/images/logo.png" rel="icon">
+  <link href="assets/images/logo.png" rel="apple-touch-icon">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Bootstrap Icons CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-gray-100">
+
+  <!-- Header -->
+  <div id="header"></div>
+
+	<div class=" min-h-screen flex flex-col items-center p-4">
+		<h1 class="text-3xl font-bold mb-6">Search Destinations & Local Areas</h1>
+
+		<div class="w-full max-w-2xl mb-6">
+			<input id="searchInput" type="text" placeholder="Search..." class="w-full p-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400">
+		</div>
+
+		<div id="results" class="grid gap-6 w-full max-w-5xl grid-cols-1 md:grid-cols-2 lg:grid-cols-3"></div>
+
+		<div id="pagination" class="flex flex-wrap justify-center space-x-1 mt-6"></div>
+	</div>
+
+  <script>
+    const RESULTS_PER_PAGE = 9;
+    let allData = [];
+    let filteredData = [];
+    let currentPage = 1;
+
+    async function fetchXML(url, type) {
+      const res = await fetch(url);
+      const text = await res.text();
+      const parser = new DOMParser();
+      const xml = parser.parseFromString(text, "application/xml");
+      const items = [];
+
+      if (type === 'destination') {
+        xml.querySelectorAll('destination').forEach(dest => {
+          items.push({
+            type: 'destination',
+            search: dest.querySelector('search').textContent,
+            image: dest.querySelector('image').textContent,
+            title: dest.querySelector('title').textContent,
+            description: dest.querySelector('description').textContent,
+            url: dest.querySelector('url').textContent
+          });
+        });
+      } else if (type === 'local') {
+        xml.querySelectorAll('localarea').forEach(area => {
+          items.push({
+            type: 'local',
+            search: area.querySelector('search').textContent,
+            image: area.querySelector('image').textContent,
+            title: area.querySelector('title').textContent,
+            description: area.querySelector('description').textContent,
+            url: area.querySelector('url').textContent
+          });
+        });
+      }
+
+      return items;
+    }
+
+    async function loadData() {
+      const destinationData = await fetchXML('assets/search/destination.xml', 'destination');
+      const localData = await fetchXML('assets/search/local.xml', 'local');
+      allData = [...destinationData, ...localData];
+    }
+
+    function renderResults() {
+      const resultsContainer = document.getElementById('results');
+      const paginationContainer = document.getElementById('pagination');
+      resultsContainer.innerHTML = '';
+      paginationContainer.innerHTML = '';
+
+      const start = (currentPage - 1) * RESULTS_PER_PAGE;
+      const paginatedItems = filteredData.slice(start, start + RESULTS_PER_PAGE);
+
+      if (paginatedItems.length === 0) {
+        resultsContainer.innerHTML = '<p class="text-gray-500">No results found.</p>';
+        return;
+      }
+
+      paginatedItems.forEach(item => {
+        resultsContainer.innerHTML += `
+          <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition">
+            <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover">
+            <div class="p-4">
+              <a href="${item.url}" class="text-lg font-semibold text-blue-600 hover:underline">${item.title}</a>
+              <p class="text-gray-600 mt-2">${item.description}</p>
+            </div>
+          </div>
+        `;
+      });
+
+      renderPagination();
+    }
+
+    function renderPagination() {
+      const paginationContainer = document.getElementById('pagination');
+      const totalPages = Math.ceil(filteredData.length / RESULTS_PER_PAGE);
+
+      function createPageButton(page) {
+        return `<button class="px-3 py-2 rounded ${page === currentPage ? 'bg-blue-600 text-white' : 'bg-white border'}" onclick="goToPage(${page})">${page}</button>`;
+      }
+
+      if (totalPages <= 1) return;
+
+      paginationContainer.innerHTML += createPageButton(1);
+
+      if (currentPage > 4) {
+        paginationContainer.innerHTML += `<span class="px-2">...</span>`;
+      }
+
+      for (let i = Math.max(2, currentPage - 2); i <= Math.min(totalPages - 1, currentPage + 2); i++) {
+        paginationContainer.innerHTML += createPageButton(i);
+      }
+
+      if (currentPage < totalPages - 3) {
+        paginationContainer.innerHTML += `<span class="px-2">...</span>`;
+      }
+
+      if (totalPages > 1) {
+        paginationContainer.innerHTML += createPageButton(totalPages);
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      renderResults();
+    }
+
+    function searchItems(query) {
+      query = query.trim().toLowerCase();
+      currentPage = 1;
+
+      if ([
+        'delhi-to-destination',
+        'faridabad-to-destination',
+        'noida-to-destination',
+        'ghaziabad-to-destination',
+        'gurgaon-to-destination'
+      ].includes(query)) {
+        filteredData = allData.filter(item => item.type === 'destination' && item.search.toLowerCase() === query);
+      } else if ([
+        'delhi-localarea',
+        'faridabad-localarea',
+        'noida-localarea',
+        'ghaziabad-localarea',
+        'gurgaon-localarea'
+      ].includes(query)) {
+        filteredData = allData.filter(item => item.type === 'local' && item.search.toLowerCase() === query);
+      } else {
+        filteredData = allData.filter(item => item.title.toLowerCase().includes(query));
+      }
+
+      renderResults();
+    }
+
+    document.getElementById('searchInput').addEventListener('input', (e) => {
+      searchItems(e.target.value);
+    });
+
+    loadData();
+  </script>
+
+<!-- Footer -->
+<div id="footer"></div>
+
+<!-- JS Includes -->
+<script src="js/form.js"></script>
+<script src="js/include.js"></script>
+<script src="js/main.js"></script>
+<script src="js/sticky-buttons.js"></script>
+</body>
+</html>

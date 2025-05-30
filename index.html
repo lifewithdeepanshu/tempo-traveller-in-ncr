@@ -1,195 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cutting Diet Plan - Reel Scroll</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      scroll-behavior: smooth;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f8fafc;
-    }
-    .reel-container {
-      display: flex;
-      flex-direction: column;
-      scroll-snap-type: y mandatory;
-      overflow-y: scroll;
-      height: 100vh;
-    }
-    .reel-slide {
-      flex: none;
-      scroll-snap-align: start;
-      height: 100vh;
-      padding: 60px 20px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(to bottom right, #ffffff, #f1f5f9);
-      border-radius: 20px;
-      margin: 10px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s ease-in-out;
-    }
-    h2 {
-      color: #0d6efd;
-      margin-bottom: 20px;
-      font-size: 2rem;
-    }
-    ul {
-      list-style: none;
-      padding-left: 0;
-      max-width: 600px;
-      text-align: center;
-    }
-    li {
-      background: #e7f3ff;
-      padding: 12px 18px;
-      border-radius: 10px;
-      margin-bottom: 12px;
-      font-size: 1.05rem;
-      transition: background 0.3s;
-    }
-    li:hover {
-      background: #d0e7ff;
-    }
-    .header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #0d6efd;
-      color: white;
-      padding: 15px 0;
-      text-align: center;
-      z-index: 10;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    }
-    .back-to-top {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background-color: #0d6efd;
-      color: white;
-      border: none;
-      border-radius: 50%;
-      padding: 12px 16px;
-      font-size: 20px;
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-      z-index: 999;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tempo Traveller in Delhi NCR | Affordable & Comfortable</title>
+  <meta name="description" content="Book reliable Tempo Travellers in Delhi, Noida, Gurgaon, Ghaziabad & Faridabad. Comfortable group travel for tours, trips, and events.">
+
+  <!-- Favicons -->
+  <link href="assets/images/logo.png" rel="icon">
+  <link href="assets/images/logo.png" rel="apple-touch-icon">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Bootstrap Icons CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
 </head>
-<body onload="scrollToCurrentSlide()">
-  <div class="header">
-    <h1>Cutting Diet Plan - Scrollable Reel</h1>
-  </div>
-  <div class="reel-container pt-5 mt-5" id="reelContainer">
-    <div class="reel-slide" id="slide-6">
-      <h2>6:30–7:00 AM - Early Morning</h2>
-      <ul>
-        <li>1 glass warm water with lemon</li>
-        <li>4–5 soaked almonds + 2 walnuts</li>
-        <li>Optional: Black coffee or green tea (no sugar)</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-8">
-      <h2>8:30–9:00 AM - Breakfast</h2>
-      <ul>
-        <li>Option 1: 3 boiled eggs (2 whole, 1 white) + 2 multigrain toasts + 1 apple</li>
-        <li>Option 2: 1 bowl oats with milk + 1 tsp peanut butter + 1 boiled egg</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-11">
-      <h2>11:00–11:30 AM - Mid-Morning Snack</h2>
-      <ul>
-        <li>1 fruit (e.g. papaya, orange, guava)</li>
-        <li>OR 100g boiled chickpeas or sprouts with lemon and salt</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-13">
-      <h2>1:00–2:00 PM - Lunch</h2>
-      <ul>
-        <li>Option 1: 1 cup brown rice or 2 multigrain rotis + 1 cup grilled chicken + salad</li>
-        <li>Option 2: 1 bowl dal + 1 bowl vegetables + 1 roti + salad + low-fat curd</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-17">
-      <h2>5:00–6:00 PM - Evening Snack</h2>
-      <ul>
-        <li>Option 1: 1 boiled egg + black coffee</li>
-        <li>Option 2: 1 fruit + roasted chana</li>
-        <li>Option 3: Homemade moong chilla</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-19">
-      <h2>7:30–8:30 PM - Dinner</h2>
-      <ul>
-        <li>Option 1: 150g grilled fish or chicken + boiled/stir-fried veggies + salad</li>
-        <li>Option 2: 100g paneer/tofu + vegetable soup + salad</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-22">
-      <h2>Optional (Late Night)</h2>
-      <ul>
-        <li>Herbal tea or chamomile tea</li>
-        <li>OR 1 glass lukewarm turmeric milk (low fat)</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-23">
-      <h2>Tips for Cutting</h2>
-      <ul>
-        <li>Drink 3–4 liters of water daily</li>
-        <li>Sleep 7–8 hours for better recovery</li>
-        <li>One cheat meal per week is allowed</li>
-      </ul>
-    </div>
-    <div class="reel-slide" id="slide-24">
-      <h2>Daily Supplement (Optional)</h2>
-      <ul>
-        <li>Whey Protein (Post-Workout)</li>
-        <li>Omega-3 Capsules</li>
-        <li>Multivitamins</li>
-        <li>Vitamin D (if deficient)</li>
-        <li>Creatine (3-5g/day, optional)</li>
-      </ul>
-    </div>
-  </div>
-  <button class="back-to-top" onclick="document.getElementById('reelContainer').scrollTo({top: 0, behavior: 'smooth'});">↑</button>
-  <!-- <script>
-  function getISTHour() {
-    const nowUTC = new Date();
-    const offsetIST = 5.5 * 60 * 60 * 1000; // IST = UTC + 5:30
-    const nowIST = new Date(nowUTC.getTime() + offsetIST);
-    return nowIST.getHours();
-  }
+<body class="font-sans text-gray-700">
 
-  function scrollToUpcomingSlide() {
-    const hour = getISTHour();
-    let targetId = 'slide-6'; // default to early morning
+  <!-- Header Include -->
+  <div id="header"></div>
 
-    if (hour < 6) targetId = 'slide-6';
-    else if (hour < 8) targetId = 'slide-8';
-    else if (hour < 11) targetId = 'slide-11';
-    else if (hour < 13) targetId = 'slide-13';
-    else if (hour < 17) targetId = 'slide-17';
-    else if (hour < 19) targetId = 'slide-19';
-    else if (hour < 22) targetId = 'slide-22';
-    else targetId = 'slide-23'; // tips or late night
+  <!-- Hero Section -->
+  <section class="bg-cover bg-center text-white" style="background-image: url('https://www.tempotravellerindia.in/assets/img/9-seater-tempo-traveller-on-rent.jpg')">
+    <div class="bg-black bg-opacity-60 h-full w-full">
+      <div class="container mx-auto text-center py-20 px-4">
+        <h1 class="text-4xl md:text-6xl font-bold">Tempo Traveller Rentals in Delhi NCR</h1>
+        <p class="text-lg mt-4">Comfortable. Affordable. Reliable.</p>
+        <div class="mt-6 flex justify-center space-x-4">
+          <a href="#contact" class="bg-yellow-400 text-black px-6 py-3 rounded font-bold">Book Now</a>
+          <a href="tel:+919999029051" class="border border-yellow-400 px-6 py-3 rounded font-bold">Call Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    const element = document.getElementById(targetId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
+  <!-- About Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-yellow-500 mb-4">About Us</h2>
+      <p class="max-w-2xl mx-auto">Started in 2011, we offer premium Tempo Traveller rental services in Delhi NCR for families, corporates, schools, and tourists. We’re known for reliable drivers, clean vehicles, and 24/7 customer support.</p>
+    </div>
+  </section>
 
-  window.onload = scrollToUpcomingSlide;
-</script> -->
+  <!-- Services Overview -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-yellow-500 mb-8">Our Services</h2>
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="bg-white shadow p-6 rounded">
+          <img class="h-auto max-w-full rounded-lg mb-2" src="assets/images/services/india_gate.jpg" alt="Local Travel in Delhi NCR">
+          <h3 class="font-bold text-lg mb-1">Local Travel</h3>
+          <p>City sightseeing and daily rentals.</p>
+        </div>
+        <div class="bg-white shadow p-6 rounded">
+          <img class="h-auto max-w-full rounded-lg mb-2" src="assets/images/services/manali.jpg" alt="Outstation Trips from Delhi NCR">
+          <h3 class="font-bold text-lg mb-2">Outstation Trips</h3>
+          <p>Manali, Jaipur, Haridwar & more.</p>
+        </div>
+        <div class="bg-white shadow p-6 rounded">
+          <img class="h-auto max-w-full rounded-lg mb-2" src="assets/images/services/corporate-travel.jpg" alt="Corporate Travel in Delhi NCR">
+          <h3 class="font-bold text-lg mb-2">Corporate Travel</h3>
+          <p>Staff transport and group bookings.</p>
+        </div>
+        <div class="bg-white shadow p-6 rounded">
+          <img class="h-auto max-w-full rounded-lg mb-2" src="assets/images/services/mathura.jpg" alt="Tour Packages in Delhi NCR">
+          <h3 class="font-bold text-lg mb-2">Tour Packages</h3>
+          <p>Customizable group tours & weekend getaways.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seater Overview -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-yellow-500 mb-2">Available Seaters</h2>
+      <p class="text-gray-600 mb-10">Choose from a variety of comfortable and spacious tempo traveller seaters suited for every group size.</p>
+
+      <div class="grid md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center">
+          <img src="assets/images/seater/9-seater-tempo-traveller.jpg" alt="9 Seater Traveller in delhi ncr" class="rounded-xl mb-4 object-cover">
+          <h3 class="text-xl font-semibold text-blue-600 hover:underline">9 Seater Tempo Traveller<h3>
+          <p class="text-gray-500 mt-2 mb-4 text-sm">Ideal for small families or friend groups planning a cozy and hassle-free trip.</p>
+          <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center">
+          <img src="assets/images/seater/12-seater-tempo-traveller.jpg" alt="12 Seater Traveller in delhi ncr" class="rounded-xl mb-4 object-cover">
+          <h3 class="text-xl font-semibold text-blue-600 hover:underline">12 Seater Tempo Traveller<h3>
+          <p class="text-gray-500 mt-2 mb-4 text-sm">Spacious and perfect for corporate trips, family tours, or outstation travel with ease.</p>
+          <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center">
+          <img src="assets/images/seater/16-seater-tempo-traveller.jpg" alt="16 Seater Traveller in delhi ncr" class="rounded-xl mb-4 object-cover">
+          <h3 class="text-xl font-semibold text-blue-600 hover:underline">16 Seater Tempo Traveller<h3>
+          <p class="text-gray-500 mt-2 mb-4 text-sm">Comfortable for mid-size groups traveling to hill stations, pilgrimages, or weddings.</p>
+          <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center">
+          <img src="assets/images/seater/20-seater-tempo-traveller.jpg" alt="26 Seater Traveller in delhi ncr" class="rounded-xl mb-4 object-cover">
+          <h3 class="text-xl font-semibold text-blue-600 hover:underline">20 Seater Tempo Traveller<h3>
+          <p class="text-gray-500 mt-2 mb-4 text-sm">Great for school or office outings, group travel, or religious tours.</p>
+          <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+        </div>
+
+        <div class="bg-white shadow-lg rounded-2xl p-4 flex flex-col items-center">
+          <img src="assets/images/seater/26-seater-tempo-traveller.jpg" alt="26 Seater Traveller in delhi ncr" class="rounded-xl mb-4 object-cover">
+          <h3 class="text-xl font-semibold text-blue-600 hover:underline">26 Seater Tempo Traveller<h3>
+          <p class="text-gray-500 mt-2 mb-4 text-sm">Perfect for large events, big families, or school groups traveling together.</p>
+          <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Top Destinations -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-yellow-500 mb-2">Top Destinations</h2>
+      <p class="text-gray-600 mb-10">Plan your next trip with our comfortable Tempo Travellers to these amazing locations.</p>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <img src="assets/images/destinations/delhi-to-manali-tempo-traveller.jpg" alt="delhi to manali tempo traveller" class="w-full h-40 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-1">
+              <a href="delhi-to-manali-tempo-traveller.html">Delhi to Manali Tempo Traveller</a>
+            </h3>
+            <p class="text-sm text-gray-600 flex-grow">Ride from Delhi to Manali in a Tempo Traveller – perfect for groups, tourists & corporates. Hill-expert drivers, comfy & scenic journey!</p>
+            <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <img src="assets/images/destinations/delhi-to-shimla-tempo-traveller.jpg" alt="Delhi to Shimla Tempo Traveller" class="w-full h-40 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-1">
+              <a href="delhi-to-shimla-tempo-traveller.html">Delhi to Shimla Tempo Traveller</a>
+            </h3>
+            <p class="text-sm text-gray-600 flex-grow">Comfortable Tempo Traveller from Delhi to Shimla – ideal for families, groups, or corporates. Safe, scenic, and customizable trips.</p>
+            <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <img src="assets/images/destinations/delhi-to-haridwar-tempo-traveller.jpg" alt="Delhi to Haridwar Tempo Traveller" class="w-full h-40 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-1">
+              <a href="delhi-to-haridwar-tempo-traveller.html">Delhi to Haridwar Tempo Traveller</a>
+            </h3>
+            <p class="text-sm text-gray-600 flex-grow">Book a Tempo Traveller from Delhi to Haridwar – perfect for pilgrimages, family trips & group tours. Safe, comfy & hassle-free ride!</p>
+            <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <img src="assets/images/destinations/delhi-to-amritsar-tempo-traveller.jpg" alt="Delhi to Amritsar Tempo Traveller" class="w-full h-40 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-1">
+              <a href="delhi-to-amritsar-tempo-traveller.html">Delhi to Amritsar Tempo Traveller</a>
+            </h3>
+            <p class="text-sm text-gray-600 flex-grow">Travel from Delhi to Amritsar in a Tempo Traveller – ideal for groups. Comfortable, safe, and customizable journeys with expert drivers.</p>
+            <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col">
+          <img src="assets/images/destinations/delhi-to-jaipur-tempo-traveller.jpg" alt="Delhi to Jaipur Tempo Traveller" class="w-full h-40 object-cover">
+          <div class="p-4 flex flex-col flex-grow">
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-1">
+              <a href="delhi-to-jaipur-tempo-traveller.html">Delhi to Jaipur Tempo Traveller</a>
+            </h3>
+            <p class="text-sm text-gray-600 flex-grow">Explore Jaipur from Delhi in a Tempo Traveller – perfect for group trips. Comfortable, safe, and ideal for sightseeing adventures!</p>
+            <div class="flex gap-2 mt-4">
+              <a href="tel:919999029051" class="flex-1 bg-green-500 text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-green-600">Call</a>
+              <a href="https://wa.me/919999029051" class="flex-1 bg-[#25D366] text-white text-center px-4 py-2 rounded-lg text-sm hover:bg-[#1ebc5c]">WhatsApp</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl font-bold text-yellow-500 mb-2">Features</h2>
+      <p class="text-gray-600 mb-10">Why customers love traveling with us</p>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+        <!-- Feature 1 -->
+        <div class="flex flex-col items-center">
+          <div class="bg-yellow-400 text-white rounded-full p-6 text-3xl mb-4">
+            <i class="bi bi-headset"></i>
+          </div>
+          <p class="font-medium text-gray-700 text-sm md:text-base">24/7 Support</p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="flex flex-col items-center">
+          <div class="bg-yellow-400 text-white rounded-full p-6 text-3xl mb-4">
+            <i class="bi bi-person-check-fill"></i>
+          </div>
+          <p class="font-medium text-gray-700 text-sm md:text-base">Trained Drivers</p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="flex flex-col items-center">
+          <div class="bg-yellow-400 text-white rounded-full p-6 text-3xl mb-4">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <p class="font-medium text-gray-700 text-sm md:text-base">Clean & Sanitized Vehicles</p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="flex flex-col items-center">
+          <div class="bg-yellow-400 text-white rounded-full p-6 text-3xl mb-4">
+            <i class="bi bi-wallet2"></i>
+          </div>
+          <p class="font-medium text-gray-700 text-sm md:text-base">Budget-Friendly</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Highlights -->
+  <section class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-yellow-500 mb-2">From the Blog</h2>
+      <p class="text-center text-gray-600 mb-10">Travel tips, destination ideas, and how Tempo Travellers make your journey smoother.</p>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Blog Card -->
+        <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+          <img src="blog/images/reasons-to-choose-tempo-traveller.jpg" alt="Top Reasons to Choose a Tempo Traveller for Your Group Travel in Delhi NCR" class="w-full aspect-video object-cover">
+          <div class="p-4">
+            <p class="text-xs text-gray-500 mb-1">Travel Tips • April 15, 2025</p>
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-2">
+              <a href="blog/blog-1.html">Top Reasons to Choose a Tempo Traveller for Your Group Travel in Delhi NCR</a>
+            </h3>
+            <p class="text-sm text-gray-600">Discover why tempo travellers are perfect for group travel, offering comfort, flexibility, and cost-efficiency for your trips around Delhi NCR.</p>
+          </div>
+        </div>
+
+        <!-- Blog Card -->
+        <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+          <img src="blog/images/best-destination-to-visit-in-delhi-ncr.jpg" alt="Hill Trips" class="w-full aspect-video object-cover">
+          <div class="p-4">
+            <p class="text-xs text-gray-500 mb-1">Destinations • April 10, 2025</p>
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-2">
+              <a href="blog-post.html">Exploring Delhi NCR: Best Destinations to Visit with a Tempo Traveller</a>
+            </h3>
+            <p class="text-sm text-gray-600">Explore top destinations in Delhi NCR, from historical sites to scenic spots, and see how a tempo traveller enhances your group travel experience.</p>
+          </div>
+        </div>
+
+        <!-- Blog Card -->
+        <div class="bg-white rounded-xl overflow-hidden shadow hover:shadow-lg transition-shadow duration-300">
+          <img src="blog/images/tempo-traveller-vs-bus.jpg" alt="Corporate Travel" class="w-full aspect-video object-cover">
+          <div class="p-4">
+            <p class="text-xs text-gray-500 mb-1">Corporate • April 5, 2025</p>
+            <h3 class="text-lg font-semibold text-blue-700 hover:underline mb-2">
+              <a href="blog-post.html">How to Choose the Right Vehicle for Your Group: Tempo Traveller vs. Bus Rental</a>
+            </h3>
+            <p class="text-sm text-gray-600">Find out how to choose the right vehicle for your group trip by comparing tempo travellers and buses based on size, comfort, and budget.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-yellow-500 mb-8">FAQs</h2>
+      <div class="space-y-4 max-w-3xl mx-auto">
+        <details class="border p-4 rounded">
+          <summary class="font-semibold">How do I book a Tempo Traveller?</summary>
+          <p class="mt-2">You can call, WhatsApp, or fill out the contact form on our website.</p>
+        </details>
+        <details class="border p-4 rounded">
+          <summary class="font-semibold">What are your rental charges?</summary>
+          <p class="mt-2">Prices vary based on destination, distance, and seating capacity.</p>
+        </details>
+        <details class="border p-4 rounded">
+          <summary class="font-semibold">Are the vehicles air-conditioned?</summary>
+          <p class="mt-2">Yes, all our Tempo Travellers are fully air-conditioned.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map & Contact CTA -->
+  <section class="py-16 bg-gray-800 text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-2xl font-bold mb-4">Book Your Tempo Traveller Today!</h2>
+      <p>We serve Delhi, Noida, Gurgaon, Ghaziabad & Faridabad</p>
+      <a href="contact.html" class="mt-4 inline-block bg-yellow-400 text-black px-6 py-3 font-bold rounded">Contact Us</a>
+      <div class="mt-8">
+        <iframe src="https://www.google.com/maps/embed?..." width="100%" height="300" style="border:0;" allowfullscreen=""></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book Now Form Section -->
+  <section class="py-16 bg-white" id="contact">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-yellow-500 mb-8">Book Now</h2>
+      <form id="travelForm" class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block mb-2 font-semibold">Full Name</label>
+          <input type="text" name="fullName" placeholder="Your Name" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Email Address</label>
+          <input type="email" name="email" placeholder="you@example.com" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Phone Number</label>
+          <input type="tel" name="phone" placeholder="99999XXXXX" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">No. of Passengers</label>
+          <input type="number" name="passengers" placeholder="e.g. 12" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Start Travel Date</label>
+          <input type="date" name="starttravelDate" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">End Travel Date</label>
+          <input type="date" name="endtravelDate" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Pickup Point</label>
+          <input type="text" name="pickup" placeholder="e.g. Faridabad Sector 15" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Destination</label>
+          <input type="text" name="destination" placeholder="e.g. Manali, Haridwar" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block mb-2 font-semibold">Your Message</label>
+          <textarea name="message" placeholder="Tell us your requirements..." rows="4" class="w-full border px-4 py-2 rounded" required></textarea>
+        </div>
+        <div class="md:col-span-2 text-center">
+          <button type="submit" class="bg-yellow-500 text-black font-bold px-6 py-3 rounded">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer Include -->
+  <div id="footer"></div>
+
+  <!-- JS Includes -->
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
+	<script src="js/sticky-buttons.js"></script>
+  <script src="js/form.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,61 @@
+/* main/style.css */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom transitions */
+a,
+button {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom font if you want to change globally */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Book Now button hover animation */
+.book-btn {
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #facc15; /* Tailwind's yellow-400 */
+  transform: scale(1.05);
+}
+
+/* Optional: Mobile menu slide-in (used with JS) */
+.mobile-menu-enter {
+  animation: slideDown 0.3s ease forwards;
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optional: Hide scrollbar for mobile nav */
+#nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+#nav-links {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Responsive Utility Fixes */
+@media (max-width: 768px) {
+  .book-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

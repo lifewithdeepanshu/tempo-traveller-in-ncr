@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Top Destinations – Tempo Traveller NCR</title>
+  <meta name="description" content="Explore our top 10 travel destinations from Delhi NCR with popular seaters. Perfect for holidays, corporate trips, and school tours.">
+	
+  <!-- Favicons -->
+  <link href="assets/images/logo.png" rel="icon">
+  <link href="assets/images/logo.png" rel="apple-touch-icon">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+	<!-- Bootstrap Icons CDN -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="bg-white text-gray-800">
+	<!-- Header -->
+  <div id="header"></div>
+
+  <!-- Breadcrumb -->
+  <div class="bg-yellow-100 py-3 px-4">
+    <div class="max-w-2xl mx-auto">
+      <p class="text-sm"><a href="index.html" class="text-yellow-600 hover:underline">Home</a> > Destinations</p>
+    </div>
+  </div>
+
+  <!-- Heading -->
+  <section class="py-10">
+    <div class="max-w-2xl mx-auto px-4">
+      <h1 class="text-3xl font-bold text-yellow-500 mb-4">Popular Destinations</h1>
+      <p class="text-gray-600">Discover our top 10 travel routes with comfortable seaters and experienced drivers. Ideal for tourists, corporates, and school trips.</p>
+  
+      <!-- Search Box -->
+      <div class="mt-6 relative">
+        <form id="search-form">
+          <input
+            type="search"
+            id="search-input"
+            placeholder="Search destination..."
+            class="w-full border border-gray-300 p-2 rounded focus:outline-yellow-500"
+            autocomplete="off"
+          />
+        </form>
+        <div id="suggestions" class="absolute bg-white border border-gray-200 w-full mt-1 rounded shadow-lg hidden z-10"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destination Cards -->
+  <section class="bg-gray-50 py-10">
+    <div id="destination-container" class="max-w-3xl mx-auto px-4 space-y-12"></div>
+  </section>
+
+  <!-- Pagination Buttons -->
+  <div id="pagination" class="max-w-6xl mx-auto px-4 py-6 text-center flex flex-wrap justify-center gap-2"></div>
+
+  <!-- CTA -->
+  <section class="py-10 bg-yellow-50 text-center">
+    <h2 class="text-2xl font-semibold text-gray-800">Didn’t find your destination?</h2>
+    <p class="text-gray-600 mt-2">Call or WhatsApp us and we’ll arrange your trip!</p>
+    <a href="contact.html" class="inline-block mt-4 bg-yellow-500 hover:bg-yellow-600 text-white px-6 py-2 rounded">Contact Us</a>
+  </section>
+
+  <!-- FAQ -->
+  <section class="py-10 bg-white">
+    <div class="max-w-4xl mx-auto px-4">
+      <h2 class="text-2xl font-bold text-yellow-500 mb-6">Frequently Asked Questions</h2>
+      <div class="space-y-4">
+        <details class="border-b pb-2">
+          <summary class="cursor-pointer font-semibold text-gray-700">How far in advance should I book?</summary>
+          <p class="text-gray-600 mt-2">It's best to book at least 2–3 days in advance to ensure availability.</p>
+        </details>
+        <details class="border-b pb-2">
+          <summary class="cursor-pointer font-semibold text-gray-700">Are drivers experienced with hill routes?</summary>
+          <p class="text-gray-600 mt-2">Yes, all our drivers are trained for mountain and long-distance travel.</p>
+        </details>
+        <details class="border-b pb-2">
+          <summary class="cursor-pointer font-semibold text-gray-700">Can I customize my travel route?</summary>
+          <p class="text-gray-600 mt-2">Absolutely! We offer fully customizable travel plans.</p>
+        </details>
+        <details class="border-b pb-2">
+          <summary class="cursor-pointer font-semibold text-gray-700">Is there an option for AC and non-AC vehicles?</summary>
+          <p class="text-gray-600 mt-2">Yes, we have both options based on your comfort and budget.</p>
+        </details>
+        <details class="border-b pb-2">
+          <summary class="cursor-pointer font-semibold text-gray-700">How do I make a booking?</summary>
+          <p class="text-gray-600 mt-2">You can call, WhatsApp, or use our contact form for bookings.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Book Now Form Section -->
+  <section class="py-16 bg-yellow-50" id="contact">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-black-500 mb-8">Book Now</h2>
+      <form id="travelForm" class="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <label class="block mb-2 font-semibold">Full Name</label>
+          <input type="text" name="fullName" placeholder="Your Name" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Email Address</label>
+          <input type="email" name="email" placeholder="you@example.com" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Phone Number</label>
+          <input type="tel" name="phone" placeholder="99999XXXXX" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">No. of Passengers</label>
+          <input type="number" name="passengers" placeholder="e.g. 12" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Start Travel Date</label>
+          <input type="date" name="starttravelDate" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">End Travel Date</label>
+          <input type="date" name="endtravelDate" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Pickup Point</label>
+          <input type="text" name="pickup" placeholder="e.g. Faridabad Sector 15" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div>
+          <label class="block mb-2 font-semibold">Destination</label>
+          <input type="text" name="destination" placeholder="e.g. Manali, Haridwar" class="w-full border px-4 py-2 rounded" required />
+        </div>
+        <div class="md:col-span-2">
+          <label class="block mb-2 font-semibold">Your Message</label>
+          <textarea name="message" placeholder="Tell us your requirements..." rows="4" class="w-full border px-4 py-2 rounded" required></textarea>
+        </div>
+        <div class="md:col-span-2 text-center">
+          <button type="submit" class="bg-yellow-500 text-black font-bold px-6 py-3 rounded">Submit Request</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <div id="footer"></div>	
+  
+  <script>
+    const cardsPerPage = 10;
+    let currentPage = 1;
+    let totalPages = 1;
+    let destinations = []; // Combined destinations for search
+    const xmlFiles = [
+      'assets/search/destination.xml', 
+      // Add more XML file paths here
+    ];
+  
+    async function fetchAllDestinations() {
+      const container = document.getElementById('destination-container');
+      container.innerHTML = ''; // Clear previous content
+  
+      const allItems = [];
+  
+      for (const file of xmlFiles) {
+        try {
+          const response = await fetch(file);
+          const str = await response.text();
+          const data = new window.DOMParser().parseFromString(str, "text/xml");
+          const items = Array.from(data.querySelectorAll('destination'));
+          allItems.push(...items);
+        } catch (err) {
+          console.error(`Failed to fetch or parse ${file}:`, err);
+        }
+      }
+  
+      allItems.forEach(item => {
+        const title = item.querySelector('title')?.textContent || 'No title';
+        const description = item.querySelector('description')?.textContent || '';
+        const image = item.querySelector('image')?.textContent || 'https://via.placeholder.com/400x250';
+        const url = item.querySelector('url')?.textContent || '#';
+  
+        destinations.push({ title, url }); // for search
+  
+        const card = document.createElement('div');
+        card.className = "destination-card flex flex-col md:flex-row bg-white shadow-lg rounded-xl overflow-hidden hover:shadow-xl transition-shadow duration-300";
+  
+        card.innerHTML = `
+          <img src="${image}" alt="${title}" class="w-full md:w-1/2 h-54 object-cover">
+          <div class="p-6 flex flex-col justify-between bg-white-50 w-full">
+            <div>
+              <a href="${url}" class="block mb-2">
+                <h3 class="text-2xl font-bold text-yellow-600 hover:text-yellow-700">${title}</h3>
+              </a>
+              <p class="text-gray-800 mb-2">${description}</p>
+            </div>
+            <div class="mt-4 flex gap-3">
+              <a href="${url}" class="bg-yellow-500 hover:bg-yellow-600 text-white text-sm px-4 py-2 rounded transition-colors duration-200">
+                View Details
+              </a>
+              <a href="https://wa.me/919560075009" target="_blank" class="bg-green-500 hover:bg-green-600 text-white text-sm px-4 py-2 rounded transition-colors duration-200">
+                Book Now
+              </a>
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+  
+      setupPagination();
+    }
+  
+    function setupPagination() {
+      const container = document.getElementById('destination-container');
+      const cards = Array.from(container.querySelectorAll('.destination-card'));
+      totalPages = Math.ceil(cards.length / cardsPerPage);
+  
+      function showPage(page) {
+        currentPage = page;
+        const start = (page - 1) * cardsPerPage;
+        const end = start + cardsPerPage;
+  
+        cards.forEach((card, index) => {
+          card.style.display = index >= start && index < end ? 'flex' : 'none';
+        });
+  
+        updatePagination();
+      }
+  
+      function updatePagination() {
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = '';
+  
+        function createButton(text, page, isActive = false, isDisabled = false) {
+          const btn = document.createElement('button');
+          btn.innerText = text;
+          btn.disabled = isDisabled;
+          btn.className = `px-3 py-1 rounded ${
+            isActive ? 'bg-yellow-400 text-white' : 'bg-gray-200 hover:bg-gray-300'
+          } ${isDisabled ? 'opacity-50 cursor-not-allowed' : ''}`;
+          if (!isDisabled) {
+            btn.addEventListener('click', () => {
+              showPage(page);
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+          }
+          pagination.appendChild(btn);
+        }
+  
+        // First, Previous
+        createButton('First', 1, false, currentPage === 1);
+        createButton('Previous', currentPage - 1, false, currentPage === 1);
+  
+        let startPage = Math.max(1, currentPage - 2);
+        let endPage = Math.min(totalPages, currentPage + 2);
+  
+        if (startPage > 1) {
+          createButton('1', 1);
+          if (startPage > 2) {
+            const dots = document.createElement('span');
+            dots.innerText = '...';
+            pagination.appendChild(dots);
+          }
+        }
+  
+        for (let i = startPage; i <= endPage; i++) {
+          createButton(i, i, currentPage === i);
+        }
+  
+        if (endPage < totalPages) {
+          if (endPage < totalPages - 1) {
+            const dots = document.createElement('span');
+            dots.innerText = '...';
+            pagination.appendChild(dots);
+          }
+          createButton(totalPages, totalPages);
+        }
+  
+        // Next, Last
+        createButton('Next', currentPage + 1, false, currentPage === totalPages);
+        createButton('Last', totalPages, false, currentPage === totalPages);
+      }
+  
+      showPage(currentPage);
+    }
+  
+    document.addEventListener('DOMContentLoaded', fetchAllDestinations);
+  </script>
+  
+  <!-- Search Script -->
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const suggestions = document.getElementById('suggestions');
+    const searchForm = document.getElementById('search-form');
+  
+    // Update suggestions dynamically
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.trim().toLowerCase();
+      suggestions.innerHTML = '';
+  
+      if (query.length === 0) {
+        suggestions.classList.add('hidden');
+        return;
+      }
+  
+      const matched = destinations.filter(dest =>
+        dest.title.toLowerCase().includes(query)
+      ).slice(0, 10); // LIMIT to 10 suggestions
+  
+      if (matched.length > 0) {
+        matched.forEach(dest => {
+          const div = document.createElement('div');
+          div.className = 'p-2 hover:bg-yellow-100 cursor-pointer text-gray-800';
+          div.innerHTML = `<a href="${dest.url}" class="block">${dest.title}</a>`;
+          suggestions.appendChild(div);
+        });
+        suggestions.classList.remove('hidden');
+      } else {
+        suggestions.classList.add('hidden');
+      }
+    });
+  
+    // Hide suggestions when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#search-input') && !e.target.closest('#suggestions')) {
+        suggestions.classList.add('hidden');
+      }
+    });
+  
+    // Search form submit
+    searchForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const query = searchInput.value.trim();
+      if (query) {
+        window.location.href = `search.php?query=${encodeURIComponent(query)}`;
+      }
+    });
+  </script>
+  
+
+  
+  <!-- JS Includes -->
+  <script src="js/form.js"></script>
+  <script src="js/include.js"></script>
+  <script src="js/main.js"></script>
+	<script src="js/sticky-buttons.js"></script>
+</body>
+</html>
